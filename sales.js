@@ -1,16 +1,25 @@
 var runningTotal = 0.0;
 
+
+
 function addItem()
 {
   var newItem;
   newItem = document.getElementById("price").value;
 if (isNaN(newItem)) {
-  window.alert("Enter price as a Number")
+  window.alert("Enter price as a Number")}
 
 }
   //IF newItem is not a number
   // THEN show an alert: "Enter price as a number"
   //OTHERWISE,
+  else{
+  newItem=Number(newItem);
+  runningTotal= runningTotal + newItem;
+  var dollars = asCurrency(runningTotal);
+  documnet.byElementById("subtotal").innerHTML=dollars
+  documnet.byElementById("price").innerHTML=" "
+  document.cookie=pretTax(runningTotal)
   // update newItem to its value cast as a number
   // update runningTotal to be its value plus newItem
   // create a variable called dollars
@@ -18,6 +27,7 @@ if (isNaN(newItem)) {
   // update the innerHTML of the span with the id "subtotal" to be dollars
   // update the value of the input with the id "price" to be an empty string
   // update a cookie called "preTax" with the value of runningTotal
+}
 }
 
 //takes a number and gives a string with the number displayed as USD currency
